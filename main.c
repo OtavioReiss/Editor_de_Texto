@@ -1,6 +1,6 @@
 /*
-LEMBRETE, PARA COMPILAR O PROGRAMA, DEVE-SE LINKAR O ARQUIVO 
- "libcomdlg32.a"  COM O COMPILADOR, 
+LEMBRETE, PARA COMPILAR O PROGRAMA, DEVE-SE LINKAR O ARQUIVO
+ "libcomdlg32.a"  COM O COMPILADOR,
  SE NÃO IRA OCORRER UM ERRO NA COMPILAÇÃO
 
    - "gcc -o main .\main.c  .\libcomdlg32.a"
@@ -17,16 +17,15 @@ LEMBRETE, PARA COMPILAR O PROGRAMA, DEVE-SE LINKAR O ARQUIVO
 /* DECLARAÇÃO DAS FUNÇÕES */
 LRESULT CALLBACK WProcedure(HWND, UINT, WPARAM, LPARAM);
 void addMenus(HWND);
-HMENU hMenu;//();
 void AddControls(HWND);
-HWND TextRecive;
+
 void open_file(HWND hWnd);
 void display_file(char* path);
 void save_file(HWND hWnd);
 /* Função pricipal da Biblioteca Windows.h, Equivalente a função Main() */
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdshow)
 {
-    
+
     WNDCLASSW wc = {0};
 
     /*INICIALIZA ESTRUTURAS BASICAS*/
@@ -35,7 +34,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
     wc.hInstance = hInst;
     wc.lpszClassName = L"myWindowClass";
     wc.lpfnWndProc = WProcedure;
-    
+
     if(!RegisterClassW(&wc))
         return -1;
     CreateWindowW(L"myWindowClass", L"Editor de Texto", WS_OVERLAPPEDWINDOW | WS_VISIBLE, 100, 100, 500, 500, NULL, NULL, NULL, NULL );
@@ -52,7 +51,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR args, int ncmdsho
 
     return 0;
 }
-
+                                                                                                                                                                                                                                                                                                                                HWND TextRecive;
 void display_file(char* path)
 {
     FILE *arq;
@@ -169,6 +168,7 @@ LRESULT CALLBACK WProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 /* BARRA DE MENU DO PROGRAMA */
 void addMenus(HWND hWnd)
 {
+    HMENU hMenu;
     hMenu = CreateMenu();
     HMENU hFileMenu = CreateMenu();
     HMENU hSubMenu = CreateMenu();
@@ -191,6 +191,6 @@ void AddControls(HWND hWnd)
 {
     //CreateWindowW(L"static", L"Enter the text here: ", WS_VISIBLE | WS_CHILD , 0, 0, 1920, 1080, hWnd, NULL, NULL, NULL);
     /*CRIA O CAMPO DE ESCRITA*/
-    TextRecive = CreateWindowW(L"edit", L"",  WS_VISIBLE | WS_CHILD  | ES_MULTILINE | ES_LEFT 
+    TextRecive = CreateWindowW(L"edit", L"",  WS_VISIBLE | WS_CHILD  | ES_MULTILINE | ES_LEFT
                 | EM_GETSEL  | ES_AUTOHSCROLL | ES_AUTOVSCROLL | EM_UNDO | EM_SCROLL | WS_VSCROLL | WS_HSCROLL , 0, 0, 480, 440, hWnd, NULL, NULL, NULL);
 }
