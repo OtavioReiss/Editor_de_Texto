@@ -10,4 +10,4 @@ para o 2º semestre do Curso de Ciência da computação da Universidade Estadua
 - Feito por:
     Otavio B. dos Reis (otavio.reis366@gmail.com).
 
-Doscente: Jandira Guenka Palma.
+Docente: Jandira Guenka Palma.
